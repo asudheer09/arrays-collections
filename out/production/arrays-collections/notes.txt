@@ -1,0 +1,236 @@
+difference between interface and abstract class:
+
+interface
+we can create interface using interface keyword.
+If we dont know anything about implementation and we have requirement specification then we have to go for interface.
+we can achieve 100% abstraction.
+we can implement multiple inheritance through interfaces.
+interface contains only abstract methods and constants.
+
+abstract class
+we can create abstract class using abstract keyword.
+If we know  about implementation not fully but partially then we have to go for abstract class.
+we can achieve partial abstraction.
+we can implement multiple inheritance through classes.
+abstract class contains not only abstract methods and constants, have also concrete methods, instance blocks, static blocks and constructors.
+
+disadvantages with arrays:
+ once we create any array we cant change its size.
+ arrays can only store homogenious data, but using Object array we can store heterogenious objects as well.
+ there are no methods to add or remove the elements in the array.
+
+collection framework
+================
+framework ( interfaces +implementation classes)
+
+collection: If we want to represent a group of objects as a single entity is called collection.
+ for example: mangos in a basket.
+
+collection is a root interface.
+it contains 3 child interfaces.
+1. List
+2. Set
+3. Queue
+
+interface Collection {
+
+public void add();
+public void remove(Object o);
+
+}
+
+interface List extends Collection{
+
+public void add();
+public void remove(Object o);
+boolean isEmpty();
+
+}
+
+List Implementation classes: ArrayList,LinkedList,Vector,Stack.
+
+List:
+1. insertion order is preserved.
+2. duplicate objects are allowed.
+3. it can allow heterogenious objects.
+4. it can allow null values.
+
+1. ArrayList:
+=========
+1. insertion order is preserved.
+2. duplicate objects are allowed.
+3. it can allow heterogenious objects.
+4. it can allow null values.
+5. default size of the arraylist is 10.
+6. Internal data structured is used by the ArrayList is dynamic array.
+7. If our frequent operation is retrieval then we will use ArrayList.
+8. ArrayList is introduced in the JDK 1.2 version.
+
+dao dao= new DaoImpl()
+List list = new ArrayList();
+
+LinkedList:
+1. LinkedList  is one of the implementation class of List interface.
+2.insertion order is preserved.
+3. duplicate objects are allowed.
+4. it can allow heterogenious objects.
+5. it can allow null values.
+6. internal data structure used by the LinkedList is double linked list.
+7.If our frequent operation is insertion or deletion then this is the best choice to use.
+
+List list = new LinkedList();
+
+LinkedList vs ArrayList
+internal data structure  for ArrayList: Dynamic array
+internal data structure  for LinkeList: double linked list
+If we our frequent operation is retrieval then we use ArrayList. ( retrieval will be fast and insertion / deletion will be slow because
+its implements RandomAccess interface)
+If we our frequent operation is insertion or deletion then we use LinkedList. (retrieval will be slow)
+
+Vector:
+1. Vector is legacy  class (old class introduced in jdk1.0)
+2. default size of Vector is 10.
+3. insertion order preserved.
+4. duplicate objects are allowed.
+5. heterogenious objects are allowed.
+6. null insertion also possible.
+7. all methods in the vectors are synchronized.
+
+synchronization:
+
+class A{
+
+m1()
+m2()
+
+
+m10;
+
+
+}
+100 seconds;
+
+1. synchronized is a keyword in java.
+2. we can apply synchronized keyword on methods and blocks only.
+3. when we apply synchronized keyword then at a time only one thread to execute that method or block,
+other threads should wait until it finishes its execution.
+
+Example :  public synchronized void hello(){
+					//logic
+				}
+
+				synchronized{
+
+				}
+
+Cursors:
+If we want to retrieve one by one object from collection then we use cursors.
+ we have two types of cursors are there:
+ 1.Iterator (global cursor)
+ 2.ListIteror (is applicable for only List implementation classes: ArrayList,LinkedList,Vector,Stack)
+ Iterator :
+ It has 3 methods
+ 1. hasNext()
+ 2. next()
+ 3. remove()
+ we can retrieve objects in forward direction.
+
+ ListIteror
+  1. hasNext()
+ 2. next()
+ 3. remove()
+ 4. hasPrevious()
+ 5. previous()
+ 6. hasIndex()
+ 7. add()
+ 8. set()
+ 9. previousIndex()
+  we can retrieve objects in forward  and backward direction.
+
+ Difference between ArrayList and Vector:
+
+ ArrayList:
+ 1. ArrayList is introduced in 1.2 ( so not legacy)
+ 2. No method is synchronized.
+ 3. performance is better compared to Vector.
+ 4. we will use Iterator ListIterator and not Enumeration to iterate the ArrayList object.
+
+ Vector
+ 1. Vector is legacy class.
+ 2. All the methods in the vector are synchronized.
+ 3. performance will be less compared to ArrayList.
+ 4. we will use Iterator ListIterator and Enumeration to iterate the vector object.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

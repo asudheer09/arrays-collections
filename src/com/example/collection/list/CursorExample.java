@@ -13,7 +13,7 @@ public class CursorExample {
         list.add("786");
         list.add("125");
         System.out.println("using iterator");
-       Iterator iterator= list.iterator();
+        Iterator iterator= list.iterator();
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }

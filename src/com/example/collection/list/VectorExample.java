@@ -17,15 +17,6 @@ public class VectorExample {
         v.add(true);
         v.add(null);
 
-        System.out.println(v);
-        v.remove(123.456);
-        System.out.println(v);
-        System.out.println(v.size());
-        System.out.println(v.isEmpty());
-        System.out.println(v.contains("hello"));
-       // v.clear();
-       // System.out.println(v);
-        System.out.println(v.get(3));
         System.out.println("iterate using iterator");
         Iterator itr= v.iterator();
         while(itr.hasNext()){

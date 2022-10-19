@@ -1,0 +1,64 @@
+Set:
+1. insertion order is not preserved.
+2. duplicates are not allowed.
+3. null insertion is possible only once.
+4. we can add heterogenious objects.
+
+Set Implementation classes
+1. HashSet
+2. LinkedHashSet
+3. TreeSet
+
+HashSet:
+=======
+1. it is implementation class for Set interface.
+2. insertion order is not preserved.
+3. duplicates are not allowed.
+4. null insertion is possible only once.
+5. we can add heterogenious objects.
+6. internal data structure is HashTable.
+7. it is introduced in 1.2 version.
+ Set s= new HashSet();
+ use: If we dont want to duplcates allowed and dont want maintain insertion order.
+
+ LinkedHashSet
+1. it is implementation class for Set interface.
+2. insertion order is  preserved.
+3. duplicates are not allowed.
+4. null insertion is possible only once.
+5. we can add heterogenious objects.
+6. internal data structure is LinkedList+HashTable.
+7. it is introduced in 1.4 version.
+use: If we dont want to duplcates allowed and you want maintain insertion order.
+
+equals()  and hashCode() method
+
+int a=10;
+int b=10;
+if(a==b)
+   both are same
+
+String s1="hello"; // SCP String constant pool
+String s2="hello";
+
+s1==s2 --->true
+
+String s3= new String("hello); // in heap memory
+String s4= new String("hello);
+
+s3==s4 --> false
+
+s1.equals(s2)
+whenever we are comparing strings then we have to use equals() method.
+
+class String extends Object{
+
+}
+
+In jvm there is a memory called heap , where all the objects get created in heap.
+Whenever we are working with hashing data structures like HashSet,LinkedHashSet etc then it is always recomend to use
+equals and hashCode methods.
+
+contract between equals and hashCode:
+If two objects are equal by equal method then  both should return same hashCode.
+

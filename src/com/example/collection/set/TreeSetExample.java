@@ -1,9 +1,6 @@
 package com.example.collection.set;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class TreeSetExample {
     public static void main(String[] args) {
@@ -15,7 +12,7 @@ public class TreeSetExample {
         set.add(1);
        // set.add(12.5);
         System.out.println(set);
-
+List list;
         Set<String> names= new TreeSet<String>();
         names.add("A");
         names.add("P");

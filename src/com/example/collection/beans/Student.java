@@ -8,15 +8,6 @@ public class Student {
     private String college;
 
     @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", college='" + college + '\'' +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -28,6 +19,16 @@ public class Student {
     public int hashCode() {
         return Objects.hash(id, name, college);
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", college='" + college + '\'' +
+                '}';
+    }
+
 
     public Student(int id, String name, String college) {
         this.id = id;

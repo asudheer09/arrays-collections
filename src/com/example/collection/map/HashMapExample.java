@@ -1,13 +1,10 @@
 package com.example.collection.map;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class HashMapExample {
     public static void main(String[] args) {
-        Map<String,Long> map= new HashMap<String,Long>();
+        Map<String,Long> map= new Hashtable<>();
         map.put("sudheer",123456789L);
         map.put("sudheer1",121212L);
         map.put("sudheer2",44L);

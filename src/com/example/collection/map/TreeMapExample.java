@@ -12,7 +12,7 @@ public class TreeMapExample {
     public static final int MIN_VALUE = -2147483648;
     public static void main(String[] args) {
 
-        MIN_VALUE=1234;
+        //MIN_VALUE=1234;
 
         Map<String,String> map= new TreeMap<>();
        /* map.put("abc","def");

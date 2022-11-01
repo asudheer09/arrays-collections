@@ -62,3 +62,4 @@ equals and hashCode methods.
 contract between equals and hashCode:
 If two objects are equal by equal method then  both should return same hashCode.
 
+'myMethod()' cannot override 'myMethod()' in 'com.example.finalkeyword.Parent'; overridden method is final

@@ -161,61 +161,218 @@ If we want to retrieve one by one object from collection then we use cursors.
  3. performance will be less compared to ArrayList.
  4. we will use Iterator ListIterator and Enumeration to iterate the vector object.
 
+Map
+====
+If we want to store the data in the form key-value pair then we go for map.
+ each key-value pair is called entry.
+
+ inteface Map{
+
+ inteface Entry{
+  Object key;
+  Object value;
+ }
 
 
+ }
+
+Example :dictionary
+word: meaning
+ambigious: confusion
+(key: value)
+phone book
+ name : phone
+ sudheer: 8667870577
+ kumar : null
+ suresh: null
+ null : 78851451666
+
+ --> in the map key should be unique. (no duplicate allowed for key)
+ --> only one null key is allowed.
+ ---> but multiple null values are allowed.
+
+ Map is an inteface:
+  HashMap
+  LinkedHashMap
+  TreeMap
+  HashTable
+ ==========
+ HashMap implements Map:
+ 1. allows one null key but multiple null's as values.
+ 2. it doesnot allow duplicate keys,if duplicate found ,new value will be replaced with old value.
+ 3. heterogenious objects are allowed.
+ 4. By default when we create hashmap object internally it create 16 buckets.
+ 5  HashMap is introduced in 1.2 v
+ 6. keys always should be unique.
+ 7. insertion order  is not maintained.
+ 8, internal data structure is HashTable.
+
+ HashTable:
+ 1. it is a legacy class.
+ 2. all methods are synchronized.
+ 3. performance will be low.
+ 4. doesnot allows null as key and null as value.
+
+ LinkedHashMap
+ 1. underlying data structure is HashTable+LinkedList
+ 2. it is introduced  in 1.4v
+ 3. insertion order is preserved.
+
+ TreeMap:
+ 1. internal data structure is RED-BLACK.
+ 2. allows only homogenious data types.
+ 3. insertion order is not preserved but it will sort keys based on some sorting order.
+ 4. for an empty TreeMap null insertion possible, after that if you add any object will cause NullPointerException.
+ 5. for an non empty TreeMap, if we try to add null then u will get NullPointerException.
+
+ ConcurrentHashMap
+ 1. present in the java.util.concurrent.
+ 2. it is introduced in java 1.5
+ 3. it provides highlevel concurrency.
+ 4. default size of the ConcurrentHashMap is 16.
+ 5. ConcurrentHashMap provides synchronization at bucket level.
 
 
+ Wrapper classes:
+
+ wrapper classes are introduced in 1.5 v
+
+ int        ---> Integer
+ byte    ---> Byte
+ short   ---> Short
+ char    --> Char
+ long    ---> Long
+ double --->  Double
+ boolean  ---> Boolean
+ float  ---> Float
+ char  --> Character
+
+ "123"---> Integer.parseInt("123")--> 123
+
+ autoboxing and auto unboxing:
+
+ int a=123;
+
+ autoboxing: converting primitive data type into object type:
+
+ Integer myObj=Integer.valueOf(a); //123
 
 
+  auto unboxing: converting object  type into primitive type:
+
+ int b=myObj;
 
 
+ public int compareTo(Object obj) {
 
+Employee e = (Employee) obj;
 
+	if(this.id>emp.id){
+            return 1;
+        }
+	else if(this.id<emp.id){
+            return -1;
+        }else{
+		  return 0;
+		}
 
+ }
 
+ we have to return +ve value if object1 has come after object 2.
+ we have to return -ve value if object1 has come before object2
 
+ Comparator:
+  present in the java.util package.
+  it is an interface.
+  It contains 2 methods
+  1. compare()
+  2. equals()
 
+  When we have to go for this Comparator is:
+  1. when we dont have access to Original object
+  ( the given class is present in jar file or if they given a .class file).
+  2. If we want to sort based on multiple properties.
 
+final keyword:
+=============
+we apply final keyword for
+1. variables
+2. methods
+3. classes
 
+final variable:
+what happens if we apply final keyword to a variable?
+example : final int a=10;
+if we mark the variable as final , then we cant change its value once assigned.
+we get compile time error: Cannot assign a value to final variable 'a'.
 
+final methods:
+class Parent{
 
+    public final void myMethod(){
+        System.out.println("final method");
+    }
+}
 
+class Child extends Parent{
+    public  void myMethod(){
+        System.out.println("final method");
+    }
+}
+if we apply final keyword to a method then we cant override that method in child class.
 
+'myMethod()' cannot override 'myMethod()' in 'com.example.finalkeyword.Parent'; overridden method is final
 
+final class:
 
+if we add final keyword to a class then we cant extend that class.
+That means we cant create child class for that class.
+final class Parent{
 
+}
 
+class Child extends Parent{
 
+}
+will get compile time errors: Cannot inherit from final 'Parent'
 
+Example for final classes are :
+String class and all wrapper classes.
+Integer
+Float
+Double
+Character
+Long
+Boolean
+Short
+Byte
 
+String:
+A string is a sequence of characters enclosed within double quotations.
+Example :
+"hi" ,"hello world" " " ""
 
+In java we create String in two ways:
+1. using literal (String s="hi") ---> SCP (String constant pool) --> duplicate objects not possible
+2. using new operator (String s= new String("hi")) ---> in heap memory.--> in heap memory possible
 
+if we want to compare two strings we always use equals() method only.
 
+difference between == operator and equals() method
+== is operator
+equals() is a method
+== we use to compare primitive data types and also references.
+equals() method we use to compare object contents.
 
+In java String is immutable:
 
+immutable means, once we create an object and if we try to modify it, instead of modifying
+original object it will create a new object.
 
+String s="sudheer";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+5 threads are trying to access this s, if any one modifies that s, then it will be impact on r
+remaining 4 threads.
 
 
 

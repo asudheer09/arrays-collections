@@ -350,11 +350,35 @@ Byte
 String:
 A string is a sequence of characters enclosed within double quotations.
 Example :
-"hi" ,"hello world" " " ""
+"hi" ,"hello world", " ", ""
 
 In java we create String in two ways:
 1. using literal (String s="hi") ---> SCP (String constant pool) --> duplicate objects not possible
 2. using new operator (String s= new String("hi")) ---> in heap memory.--> in heap memory possible
+
+String s="hello";
+String s1="hello";
+
+String word= new String("hello");
+String word1= new String("hello");
+
+When we create a String using new operator, internally it will create two objects, one is
+inside heap memory and another one in SCP, but it will always return heap memory object.
+
+intern()---> method will get the object from SCP.
+
+word1.intern()----> It will get an object from SCP.
+
+String s1=new String("hello");   // 2 objects created: 1 heap : 1 SCP
+String s2="hello"; // 1 object created in SCP
+
+String s3=s1.intern();//returns string from pool, now it will be same as s2
+
+System.out.println(s2==s3);//true because reference variables are pointing to same instance
+
+
+
+
 
 if we want to compare two strings we always use equals() method only.
 
@@ -373,6 +397,85 @@ String s="sudheer";
 
 5 threads are trying to access this s, if any one modifies that s, then it will be impact on r
 remaining 4 threads.
+
+
+
+Employee e1= new Employee(1,"sudheer", 120000);
+Employee e2= new Employee(1,"sudheer", 120000);
+
+sout(e1==e2) // false
+e1.equals(e2) //false (assume in Employee class equals() method is not overridden)
+ If we want to compare contents of the object then we always override equals() method.
+ whenever we override the equals() method then we must override the hashcode() method.
+
+ contract:
+ If two objects are equal by equal method then they must return same hashcode.
+
+ why we need to override hashcode ?
+
+ Whenever you are going to use your object in any hashing related data structures like HashMap and HashSet etc
+ then you must override the equals() and hashCode() methods:
+
+Set<Employee> set = new HashSet<Employee>();
+set.add(e1);
+set.add(e2);
+sout(set.size()); //2
+
+Set<String> set1 = new HashSet<String>();
+set1.add(e1);
+set1.add(e2);
+sout(set1.size());//1 because in String class its already overridden equals() and hashCode() method.
+
+StringBuffer and StringBuilder:
+
+String p="hello";
+p.concat(" world");
+sout(p);// hello
+
+p=p.concat(" world"); //
+sout(p); // hello world
+
+because of String immutability, so whenever we modify string object, internally it creates so many objects then it will
+take more memory for the application, thats why they have given StringBuffer and StringBuilder classes.
+
+StringBuffer and StringBuilder objects are mutable.
+
+StringBuffer vs StringBuilder:
+1. StringBuffer is thread safe.
+2. StringBuilder is not thread safe.
+3. StringBuffer performance is low.(need other threads to wait)
+4. StringBuilder is more. (no need to wait other threads)
+5. StringBuffer and StringBuilder objects are mutable.
+
+Immutable classes:
+Examples:
+
+String,
+Integer
+Float
+Double
+Character
+Boolean
+Byte
+Short
+Long
+
+we can also create our own immutable classes:
+Immutable means once we crate an object , if we try to modify it wont accept.
+
+Steps to create Immutable class:
+1. declare class as final.
+2. declare all variables are final
+3. provide getters only.(no setters)
+
+
+
+
+
+
+
+
+
 
 
 

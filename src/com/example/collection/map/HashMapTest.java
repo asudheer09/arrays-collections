@@ -14,6 +14,8 @@ public class HashMapTest {
         map.put(123,null); // Integer
         map.put(123.456,null); //Double
 
+        map.get("abc");
+
         Set s1=map.entrySet();
 
         Iterator itr= s1.iterator();

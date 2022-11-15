@@ -1,0 +1,89 @@
+Threads:
+========
+Multitasking:
+doing multiple things at a time.
+ we have two types of multitasking there:
+ 1. process based multi-tasking (example : opening youtube and typing in editor )
+ 2. thread based multi-tasking
+
+ java supports thread based multi-tasking;
+
+ thread: flow of an execution.
+ process: it is a collection of threads
+
+ In java we can create threads in two ways:
+ 1. by extending Thread class.
+ 2. by implementing Runnable interface
+
+ In both scenarios we will override run() method.
+
+ Advantages of Threads:
+ =====================
+
+ 2 files
+
+ a.txt  ---> 10 mins
+ b.txt  ---> 10 mins
+
+ total time taken to read both files will be : 20 mins (without multi-threading)
+
+
+ ThreadA -->10 mins
+ ThreadB -->10 mins
+ total time taken to read above files will be : 10 min (with multi-threading)
+
+1. creating thread by extending Thread class:
+
+Example:
+
+class MyThread extends Thread{
+    @Override
+    public void run() {
+        for (int i=0;i<10;i++){
+            System.out.println("this is  MyThread");
+        }
+    }
+}
+
+2. After extending Thread class override the run() method:
+3. then create an object for the thread class.
+ MyThread myThread= new MyThread();
+4. once object got created we have to call start() method, when we call start() method
+internally thread will be created and then run() method will be invoked.
+        myThread.start();
+what happens if we call run() method directly?
+No thread will be created and run() method will be called like a normal method.
+
+whenever we are working with multiple threads we cant predict the order.
+
+which one is best approach to create thread?
+extending Thread class or implementing Runnable?
+
+Multiple inheritance: extending more than one class at time.
+class A extends B, C
+
+class MyThread extends Thread{
+
+}
+
+if MyThread class extends Thread class then it is not allowed to extend any other
+class due to multiple inheritance, but multiple inheritance does not supported by java.
+
+if we implements Runnable interface then MyThread class can extend another class also.
+
+class MyThread extends Abc implements Runnable {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

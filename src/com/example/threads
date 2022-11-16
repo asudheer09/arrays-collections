@@ -1,15 +1,14 @@
 Threads:
 ========
-Multitasking:
-doing multiple things at a time.
+Multitasking:doing multiple tasks at a time.
  we have two types of multitasking there:
  1. process based multi-tasking (example : opening youtube and typing in editor )
  2. thread based multi-tasking
 
  java supports thread based multi-tasking;
 
- thread: flow of an execution.
- process: it is a collection of threads
+ thread: flow of an execution. it is a light weight process.
+ process: it is a collection of threads.
 
  In java we can create threads in two ways:
  1. by extending Thread class.
@@ -54,7 +53,7 @@ internally thread will be created and then run() method will be invoked.
 what happens if we call run() method directly?
 No thread will be created and run() method will be called like a normal method.
 
-whenever we are working with multiple threads we cant predict the order.
+whenever we are working with multiple threads we cant predict the order of threads execution.
 
 which one is best approach to create thread?
 extending Thread class or implementing Runnable?
@@ -75,6 +74,68 @@ class MyThread extends Abc implements Runnable {
 
 }
 
+2. implements Runnable interface
+class MyThread implements Runnable {
+   public void run(){
+     //logic
+   }
+}
+
+MyThread mt= new MyThread();
+
+Thread t= new Thread(mt);
+t.start();
+
+Thread Lifecycle:
+1. New state:     Thread t= new Thread(mt);
+2. Runnable/ ready state :  t.start()
+3. Running state : when run() method started executing then we can say it is running state.
+4. Waiting state : when we call sleep() method  then it will pause execution.
+5. dead state    : when run() method execution is completed then we can say it is dead state.
+
+Thread Scheduler:
+===============
+whenever we call start() method, then thread Scheduler will pick up threads for execution based on
+priority.
+
+each thread has some priority, the priority is between 1-10.
+Normal priority for any thread is 5.
+in Java there is one thread which executes in background which is daemon thread , here daemon thread is main.
+so priority of a main thread is 5.
+
+We cant start a thread for multiple times, if so we will get IllegalThreadStateException:
+Example:
+MyTestThread t1= new MyTestThread();
+        Thread thread= new Thread(t1);
+        thread.start();
+        thread.start();
+
+
+In java we can develop two types of applications:
+1. standalone applications ( applet, javafx, jwt etc)
+2. web applications
+    1. static  ( content never change)
+    2. dynamic ( content will change everytime)
+
+To develop web applications we have following options:
+1. servelt
+2. jsp
+3. struts
+4. spring mvc
+5. spring boot
+
+to run web applications we need server.
+
+servers are again 2 types:
+1. web server  (example : tomcat)
+2. application server. (example : jboss, webpshere,weblogic, glassfish etc)
+
+tomcat:
+
+tomcat is a web server.
+inside tomcat we will deploy our web applications
+
+jsp=java+html
 
 
 
